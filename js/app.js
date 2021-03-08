@@ -16,9 +16,8 @@ $(function () {
                 "Adam the Anaconda",
             ]
         }, {
-            daysOfCourse: 12
+            daysOfCourse: 15
         }],
-        daysOfCourse: 12,
         init: function () {
             if (!localStorage.attendance) {
                 let attendance = {};
