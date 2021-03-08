@@ -16,7 +16,7 @@ $(function () {
                 "Adam the Anaconda",
             ]
         }, {
-            daysOfCourse: 15
+            daysOfCourse: 12
         }],
         init: function () {
             if (!localStorage.attendance) {
