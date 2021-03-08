@@ -78,10 +78,6 @@ $(function () {
             let course = octapus.getCourse();
             let days = octapus.getDays();
             // creates a <table> element and a <tbody> element
-            // var tbl = document.createElement("table");
-            var tbl = document.getElementById("#tbl");
-
-            // tblHead.innerHTML = "";
             let html = "";
             // careate the <thead> section
             html += `
@@ -96,6 +92,7 @@ $(function () {
                 </thead>`;
 
             $("#tbl").append(html);
+            /*################# */
             html = "";
             html += `<tbody>`;
             // careate the <tbody> section
@@ -115,21 +112,20 @@ $(function () {
             });
             html += `</tbody>`;
             $("#tbl").append(html);
+            /*################# */
             view.countMissing();
         },
         countMissing: function () {
             $('input').change(function (e) {
                 let studentRow = $(this).parent().parent()[0];
-                let name = $(this).parent().parent().children('.name-col')[0].textContent;
-                console.log(name);
+                let studentName = $(this).parent().parent().children('.name-col')[0].textContent;
+                console.log(studentName);
                 let value = [];
-                let missedDaysCounter = $(studentRow).children('.missed-col')[0];
                 dayChecks = $(studentRow).children('.attend-col').children('input');
-                // console.log(dayChecks);
-                dayChecks.each(function (i) {
+                dayChecks.each(function () {
                     value.push(this.checked);
                 });
-                octapus.setAttendence(value, name);
+                octapus.setAttendence(value, studentName);
                 $("#tbl").html("");
                 view.init();
             });
